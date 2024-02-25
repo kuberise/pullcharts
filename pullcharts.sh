@@ -5,11 +5,15 @@ valuesFile="../kuberise/app-of-apps/values.yaml"
 
 # Function to compare version numbers
 compareVersions() {
-    if [[ $1 == $2 ]]; then
+    # Strip non-numeric prefix (e.g., "v" from versions like "v1.2.3")
+    local cleanVer1=$(echo "$1" | sed 's/[^0-9.]*//g')
+    local cleanVer2=$(echo "$2" | sed 's/[^0-9.]*//g')
+
+    if [[ $cleanVer1 == $cleanVer2 ]]; then
         return 1
     fi
-    IFS='.' read -ra VER1 <<< "$1"
-    IFS='.' read -ra VER2 <<< "$2"
+    IFS='.' read -ra VER1 <<< "$cleanVer1"
+    IFS='.' read -ra VER2 <<< "$cleanVer2"
     for ((i=0; i<${#VER1[@]}; i++)); do
         if [[ -z ${VER2[i]} ]]; then
             VER2[i]=0
@@ -22,6 +26,7 @@ compareVersions() {
     done
     return 1
 }
+
 
 # Function to process each helm chart
 processChart() {
