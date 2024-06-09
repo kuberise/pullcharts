@@ -1,6 +1,9 @@
 #!/bin/bash
+# This script reads the values.yaml of app of apps in kuberise and pulls all the helm charts to the charts directory.
+# This is usefull to read or search the source of all charts and see the values of the charts.
 
-# Define the path to the values.yaml file
+
+# Define the path to the kuberise app of apps values.yaml file
 valuesFile="../kuberise/app-of-apps/values.yaml"
 
 # Define directories for compressed charts and extracted charts
