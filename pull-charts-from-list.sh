@@ -9,10 +9,11 @@
 compressedDir="./compressed"
 chartsDir="./charts"
 
-filename="charts.txt"
+filename="charts.csv"
 
 while IFS=, read -r chart targetVersion repoURL
 do
+    [[ $chart =~ ^#.*$ ]] && continue # Skip lines starting with #
     echo "Pulling chart: $chart, version: $targetVersion from repo: $repoURL"
     helm pull $chart --version $targetVersion --repo $repoURL --destination "$compressedDir"
     echo "Decompressing chart: $chart"

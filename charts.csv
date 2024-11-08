@@ -1,0 +1,3 @@
+# keycloakx,2.3.0,https://codecentric.github.io/helm-charts
+# pgadmin4,1.26.0,https://helm.runix.net
+argo-cd,7.7.0,https://argoproj.github.io/argo-helm
