@@ -1,3 +1,7 @@
-# keycloakx,2.3.0,https://codecentric.github.io/helm-charts
+# keycloakx,2.6.0,https://codecentric.github.io/helm-charts
 # pgadmin4,1.26.0,https://helm.runix.net
-argo-cd,7.7.0,https://argoproj.github.io/argo-helm
+# argo-cd,7.7.0,https://argoproj.github.io/argo-helm
+# argocd-image-updater,0.11.1,https://argoproj.github.io/argo-helm
+# external-dns,8.5.1,https://charts.bitnami.com/bitnami
+# metrics-server,3.12.2,https://kubernetes-sigs.github.io/metrics-server
+keycloak-operator,1.23.0,https://epam.github.io/edp-helm-charts/stable
