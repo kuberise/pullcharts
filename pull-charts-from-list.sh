@@ -15,7 +15,17 @@ while IFS=, read -r chart targetVersion repoURL
 do
     [[ $chart =~ ^#.*$ ]] && continue # Skip lines starting with #
     echo "Pulling chart: $chart, version: $targetVersion from repo: $repoURL"
-    helm pull $chart --version $targetVersion --repo $repoURL --destination "$compressedDir"
+
+    # Check if the repoURL is an OCI repository
+    if [[ $repoURL == oci://* ]]; then
+        # Pull the chart from an OCI repository
+        helm pull $repoURL/$chart --version $targetVersion --destination "$compressedDir"
+        helm export $repoURL/$chart --version $targetVersion --destination "$compressedDir"
+    else
+        # Pull the chart from a non-OCI repository
+        helm pull $chart --version $targetVersion --repo $repoURL --destination "$compressedDir"
+    fi
+
     echo "Decompressing chart: $chart"
     tar -xzvf $compressedDir/$chart-$targetVersion.tgz -C "$chartsDir"
 done < "$filename"

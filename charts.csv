@@ -5,4 +5,8 @@
 # external-dns,8.5.1,https://charts.bitnami.com/bitnami
 # metrics-server,3.12.2,https://kubernetes-sigs.github.io/metrics-server
 # keycloak-operator,1.23.0,https://epam.github.io/edp-helm-charts/stable
-oauth2-proxy,7.8.2,https://oauth2-proxy.github.io/manifests
+# oauth2-proxy,7.8.2,https://oauth2-proxy.github.io/manifests
+# cilium,1.16.4,https://helm.cilium.io/
+# external-secrets,0.11.0,https://charts.external-secrets.io
+# kyverno,3.3.4,https://kyverno.github.io/kyverno
+# redis,20.6.1,oci://registry-1.docker.io/bitnamicharts
