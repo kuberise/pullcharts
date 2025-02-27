@@ -10,3 +10,4 @@
 # external-secrets,0.11.0,https://charts.external-secrets.io
 # kyverno,3.3.4,https://kyverno.github.io/kyverno
 # redis,20.6.1,oci://registry-1.docker.io/bitnamicharts
+rancher,2.10.2,https://releases.rancher.com/server-charts/latest
